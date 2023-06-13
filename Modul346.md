@@ -75,3 +75,13 @@ Bild von Key 01:
 
 Bild von Key 02:
 ![Bild Key02](./K02/Key02.png)
+
+EC2-Liste:
+![Bild EC2](./K02/EC2Liste.png)
+
+Instance-Details:
+![Bild InstanceDetails](./K02/InstanceDetails.png)
+SecurityGroup-AufgabeD:
+![Bild AufgabeD](./K02/D.png)
+SecurityGroup-AufgabeK02:
+![Bild SecGroup](./K02/SecurityAufgabeK02.png)
