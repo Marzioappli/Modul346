@@ -69,7 +69,6 @@ users:
 Bild von Schlüssel 2 in AWS:
 ![Bild Keypair](./K02/Keypair.png)
 
-
 Bild von Key 01:
 ![Bild Key01](./K02/Key01.png)
 

@@ -1,0 +1,18 @@
+  #cloud-config
+users:
+  - name: ubuntu
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    groups: users, admin
+    home: /home/ubuntu
+    shell: /bin/bash
+    ssh_authorized_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCABDc3IIkn7JcJlKmbaVSufkhQIP4pd8dHHCgen+Ig3MDSSQIlhsGDutHF4NyYnK0gsgXijTH9JCiCmURWBBWrRlXSIO+X8PkV4k2WmjmVsmnXk/0CFqilHhJ19s0bDvJCI+36A1iz5IXaWw8RmVajOY8p0WXmRNhxHx7swkUp1HJF8BdqEXHgv6rqG+cPKwSlTGGqX3TV2c4ivEueTvlJKnzsUCyQClEjc0BYID2WvcjHeNEAl+uHHrtj6l33fOKoOJDk22Le4pZpK237qNNnpGKcJKzIgQoywiwnDrv2P5KPiINbtCaqr7yecYS3JtfD9K6Xqso3BDih97dwjF8D aws-key
+ssh_pwauth: false
+disable_root: false
+package_update: true
+packages:
+  - mariadb-server
+runcmd:
+  - sudo mysql -sfu root -e "GRANT ALL ON *.* TO 'admin'@'%' IDENTIFIED BY 'password' WITH GRANT OPTION;".
+  - sudo sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mysql/mariadb.conf.d/50-server.cnf
+  - sudo systemctl restart mariadb.service
