@@ -1,0 +1,20 @@
+#cloud-config
+users:
+  - name: ubuntu
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    groups: ubuntu, tbz
+    home: /home/ubuntu
+    shell: /bin/bash
+    ssh_authorized_keys:
+      - ssh-rsa xxxaaabbbcccxxx aws-key
+ssh_pwauth: false
+disable_root: false
+package_update: true
+timezone: "EU/Central"
+locale: "de_CH"
+packages:
+  - curl
+  - wget
+runcmd:
+  - sudo a2enconf adminer
+  - sudo systemctl restart apache2
